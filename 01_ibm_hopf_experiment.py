@@ -186,7 +186,7 @@ def expectation_3q(distribution):
 def counts_to_probabilities(counts):
     total = sum(counts.values())
 
-    return {bitstring: count / totalfor bitstring, count in counts.items()}
+    return {bitstring: count / total for bitstring, count in counts.items()}
 
 
 def raw_exp_1q(counts):
