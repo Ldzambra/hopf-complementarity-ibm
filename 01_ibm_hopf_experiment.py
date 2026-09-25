@@ -101,9 +101,7 @@ def make_embedded_measurement(alpha, theta, phi, pauli):
     return qc
 
 
-# ============================================================
 # Build and transpile the experiment
-# ============================================================
 
 base_isa_circuits = []
 
@@ -129,13 +127,11 @@ print(f"Total circuit instances: {len(all_isa_circuits)}")
 print(f"Shots per circuit:       {shots}")
 
 
-# ============================================================
 # Hardware execution and M3 readout mitigation
-# ============================================================
 
 mappings = [mthree.utils.final_measurement_mapping(circuit) for circuit in all_isa_circuits]
 
-measured_qubits = sorted({qubit for mapping in mappings for qubit in mapping.values()})
+measured_qubits = sorted({qubit for mapping in mappings for qubit in mapping.keys()})
 
 print(f"Physical qubits requiring calibration: {measured_qubits}")
 
