@@ -5,8 +5,16 @@ from qiskit.quantum_info import Statevector, SparsePauliOp
 from qiskit.transpiler.preset_passmanagers import generate_preset_pass_manager
 from qiskit_ibm_runtime import SamplerV2 as Sampler
 
+'''
+Experiment 1: Direct measurement of Hopf coordinates on IBM hardware.
 
-# Experimental configuration
+Backend: ibm_kingston
+Physical qubits: [49, 38, 50]
+States: 12
+Shots per circuit: 1000
+Independent repetitions: 20
+IBM job ID: daq9l9qkqcdc73aad1b0
+'''
 
 # State parameters: (alpha, theta, phi), specified in degrees
 test_states = [
@@ -28,6 +36,8 @@ n_reps = 20
 n_states = len(test_states)
 n_coords = 5
 circuits_per_rep = n_states * n_coords
+
+service = QiskitRuntimeService()
 
 backend = service.backend("ibm_kingston")
 
